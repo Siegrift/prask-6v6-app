@@ -8,7 +8,17 @@
     <title>6 proti 6</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="start-container">
+      <div class="start-screen">
+        <a href="#" class="btn-gradient orange start-time" id="start">
+          <div class="text-wrapper">
+            <span class="text big">Spustiť časomieru</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="container hidden" id="main-container">
       <div class="code-container">
         <div class="code-container-content">
           <div class="code-row">
@@ -46,7 +56,13 @@
           </div>
         </div>
       </div>
-      <div class="info">Hello</div>
+      <div class="code-label">
+        <div class="text-wrapper"><span class="text biggest">Hello</span></div>
+      </div>
+      <div class="info">
+        <button class="restart text">Reštart</button>
+        <div class="time-container text">Time: <span id="time"></span></div>
+      </div>
     </div>
   </body>
   <script src="main.js"></script>
