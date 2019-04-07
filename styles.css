@@ -148,3 +148,7 @@ body {
   margin: auto 0;
   margin-left: 0.4em;
 }
+
+.green {
+  color: green;
+}
