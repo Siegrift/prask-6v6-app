@@ -99,7 +99,7 @@ body {
 
 .code-button {
   flex: 1;
-  font-size: 4.5em;
+  font-size: 5em;
 }
 
 .text-wrapper {
@@ -119,7 +119,7 @@ body {
 }
 
 .text.biggest {
-  font-size: 5em;
+  font-size: 4.5em;
 }
 
 .hidden {
