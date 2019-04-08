@@ -23,18 +23,33 @@ const updateCodePanel = () => {
   tappedCodeText.innerHTML = tappedCode;
 };
 
-const shuffleButtonText = () => {
-  // TODO: shuffle buttons
+const shuffle = a => {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 };
 
+const shuffleButtonText = () => {
+  const newButtonsText = shuffle(buttons.map(btn => btn.innerHTML));
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].innerHTML = newButtonsText[i];
+  }
+};
 shuffleButtonText();
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
+    if (!currentInterval) return;
+
     if (btn.innerHTML[0] === untappedCode[0]) {
       tappedCode += untappedCode[0];
       untappedCode = untappedCode.substr(1);
-      // TODO: check if untapped is empty and stop timer
+      if (untappedCode.length === 0) {
+        clearInterval(currentInterval);
+        currentInterval = undefined;
+      }
       shuffleButtonText();
     } else {
       untappedCode = tappedCode + untappedCode;
