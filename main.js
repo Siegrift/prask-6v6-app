@@ -14,7 +14,7 @@ const updateTimeValue = () => {
   timeText.innerHTML = (Date.now() - startTime) / 1000;
 };
 
-const LENGTH = 8;
+const LENGTH = 3;
 let untappedCode = "";
 let tappedCode = "";
 
@@ -43,19 +43,24 @@ buttons.forEach(btn => {
   btn.addEventListener("click", () => {
     if (!currentInterval) return;
 
+    new Audio("click.wav").play();
+
     if (btn.innerHTML[0] === untappedCode[0]) {
       tappedCode += untappedCode[0];
       untappedCode = untappedCode.substr(1);
       if (untappedCode.length === 0) {
         clearInterval(currentInterval);
         currentInterval = undefined;
+        new Audio("winner.wav").play();
       }
-      shuffleButtonText();
     } else {
+      $(document.body).effect("shake");
       untappedCode = tappedCode + untappedCode;
       tappedCode = "";
+      new Audio("fail.wav").play();
     }
 
+    shuffleButtonText();
     updateCodePanel();
   });
 });
