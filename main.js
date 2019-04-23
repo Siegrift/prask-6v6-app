@@ -14,7 +14,7 @@ const updateTimeValue = () => {
   timeText.innerHTML = (Date.now() - startTime) / 1000;
 };
 
-const LENGTH = 3;
+const LENGTH = 8;
 let untappedCode = "";
 let tappedCode = "";
 
